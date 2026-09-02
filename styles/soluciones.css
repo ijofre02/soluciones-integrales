@@ -1,0 +1,51 @@
+/* Base Mobile-First */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 80vh;
+  background: url('../images/hero-ver2-horizontal.webp') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  /* Alinea el contenido abajo dentro del hero */
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+.hero-content {
+  text-align: center;
+}
+
+.hero-title img {
+  max-width: 250px;
+  height: auto;
+}
+
+.hero-tagline {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Logo Section */
+.logo {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.logo img {
+  max-width: 180px;
+}
