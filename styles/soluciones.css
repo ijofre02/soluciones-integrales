@@ -1,8 +1,30 @@
-/* Base Mobile-First */
+/* =========================================================
+   RESET
+   ========================================================= */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+/* =========================================================
+   VARIABLES GLOBALES
+   ========================================================= */
+:root {
+  /* Colores */
+  --primary-color: #0D1462;
+  --secondary-color: #00A2E0;
+  --accent-color: #00B8D9;
+  
+  --primary-light: #E8F7FC;
+  --primary-dark:#080D45;
+  /* ===== TEXT =====*/
+  --text-primary: #1B1F2A;
+  --text-secondary: #5B6472;
+
+  /* Tipografía */
+  --heading-font: "Playfair Display", serif;
+  --body-font: "Lato", sans-serif;
 }
 
 body {
@@ -11,41 +33,177 @@ body {
   color: #333;
 }
 
-/* Hero Section */
-.hero {
-  position: relative;
-  min-height: 80vh;
-  background: url('../images/hero-ver2-horizontal.webp') no-repeat center center/cover;
+
+/* =========================================================
+   HEADER / NAV (flota encima del hero)
+   ========================================================= */
+.site-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+}
+
+.navigation {
+  width: min(92%, 1320px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 24px;
+}
+
+.menu-toggle {
+  border: none;
+  background: transparent;
+  color: var(--accent-color);
+  font-size: 70px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.navigation-list {
+  display: none;
+  list-style: none;
+}
+
+.navigation-list a {
+  color: var(--primary-light);
+  text-decoration: none;
+}
+
+.navigation-list.is-open {
+  position: absolute;
+  top: 75px;
+  right: 4%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  /* Alinea el contenido abajo dentro del hero */
-  align-items: center;
-  padding-bottom: 2rem;
+  gap: 24px;
+  padding: 24px;
+  background: rgba(0, 0, 0, .75);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
 }
 
-.hero-content {
-  text-align: center;
+/* =========================================================
+   HERO — sección completa
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100svh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, .06) 0%,
+      rgba(0, 0, 0, .14) 45%,
+      rgba(0, 0, 0, .76) 100%);
 }
+
+/* La imagen de fondo estirada */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* El contenedor de todo lo que va ARRIBA de la imagen */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(92%, 1320px);
+  height: 100svh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: clamp(70px, 29vh, 250px); /*Aca lo muevo  */
+  padding-bottom: clamp(30px, 5vh, 60px);
+  color: var(--font-color);
+}
+
+.hero-text-block {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+  align-items: center;
+}
+
+/* h1 { H1 ES UNA IMAGEN NO UN TEXTO ASI QUE NO APLICA
+  max-width: 1100px;
+  font-size: clamp(56px, 9vw, 142px);
+  line-height: .9;
+  letter-spacing: -.055em;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+} */
 
 .hero-title img {
-  max-width: 250px;
-  height: auto;
+  display: block; /* saca el gap fantasma que dejan los img inline */
+  width: clamp(280px, 92vw, 850px); /* el equivalente al font-size que tenías */
+  max-width: 100%;
+  height: auto; /* mantiene la proporción de la imagen, no la deforma */
 }
 
-.hero-tagline {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ffffff;
-  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+.hero-subtitle {
+  max-width: 850px;
+  margin: 28px 0 0;
+  font-size: clamp(18px, 12.1vw, 85px);
+  line-height: 1.25;
+  color: rgba(255, 255, 255, .95);
 }
 
-/* Logo Section */
+.hero-p {
+  max-width: 850px;
+  margin: 28px 0 0;
+  font-size: clamp(18px, 3.4vw, 85px);
+  line-height: 1.25;
+  color: rgba(255, 255, 255, .95);
+}
+
 .logo {
-  text-align: center;
-  padding: 1.5rem 0;
+  position: absolute;
+  top: 24px; /* yo dónde */
+  left: -20px; /* neg para ir a la izq fuera del contenedor */
 }
 
 .logo img {
-  max-width: 180px;
+  display: block;
+  width: clamp(60px, 21vw, 250px); /* (minimo, valor ideal %del viewport, maximo) */
+  height: auto;
 }
+
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* =========================================================
+SECCION
+   ========================================================= */
+
+.services {
+  background: #ffffff;
+  color: #000000;
+  padding: 85px 0 80px;
+}
+

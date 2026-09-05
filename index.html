@@ -12,12 +12,12 @@
   <script src="script/soluciones.js" defer></script>
 </head>
 <body>
-  <header>
+  <header class="site-header">
     <nav class="navigation">
       <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
         ≡
       </button>
-      <ul>
+      <ul class="navigation-list">
         <li><a href="index.html">Principal</a></li>
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#trabajos">Trabajos realizados</a></li>
@@ -28,19 +28,36 @@
   </header>
   
   <main>
+    <!-- =============== HERO CON TODO LO DE ADENTRO =============== -->
     <section class="hero">
+      <!-- BANER -->
+      <picture class="hero-bg">
+        <source media="(min-width: 1000px)" srcset="images/hero-comodidad-v4.webp">
+        <img src="images/hero-small.webp" alt="baner comodidad" class="hero-bg">
+      </picture>
+      <!-- TODO LO QUE VA DENTRO -->
       <div class="hero-content">
-        <h1 class="hero-title">
-          <img src="images/nube-sin-fondo.webp" alt="Soluciones Integrales - Bienestar">
-        </h1>
-        <p class="hero-tagline">A tu medida</p>
+        <!-- CONTENEDOR DE SOLO EL TEXTO -->
+        <div class="hero-text-block">
+          <h1 class="hero-title">
+            <img src="images/nube-sin-fondo.webp" alt="Soluciones Integrales - Bienestar">
+          </h1>
+          <h2 class="hero-subtitle">A tu medida</h2>
+          <p class="hero-p">Especialistas en el área de refrigeración y climatización para tu hogar, comercio o industria.</p>
+          <button class="btn-primary">Cotizar</button>
+        </div>
+        <!-- CONTENEDOR DEL LOGO -->
+        <div class="logo">
+          <img src="images/logo-alternativo-frio.webp" alt="Soluciones Integrales Logo">
+        </div>
       </div>
     </section>
-    
-    <section class="logo">
-      <img src="images/logo-empresa-sinfondo.webp" alt="Soluciones Integrales Logo">
+
+    <!-- ============= SECCIONES ================= -->
+    <section class="lema">
+      
     </section>
-    
+
     <section id="servicios" class="services">
       <h2>Servicios Prestados</h2>
       <div class="services-grid">
