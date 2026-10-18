@@ -1,0 +1,113 @@
+/* =========================================================
+   SOLUCIONES INTEGRALES — CSS PANTALLA GRANDE
+   Se aplica desde 1000px, el mismo punto donde el <picture>
+   del hero cambia a la imagen grande.
+   ========================================================= */
+@media (min-width: 1000px) {
+
+  /* ---------- Secciones ---------- */
+  .section {
+    padding: 96px 0;
+  }
+
+  /* ---------- Menú: se muestra horizontal, sin hamburguesa ---------- */
+  .menu-toggle {
+    display: none;
+  }
+
+  .navigation {
+    padding-block: 18px;
+  }
+
+  .navigation-list,
+  .navigation-list.is-open {
+    position: static;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 32px;
+    min-width: 0;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    border-radius: 0;
+  }
+
+  .navigation-list a {
+    font-size: 1rem;
+  }
+
+  /* ---------- Hero: texto alineado a la izquierda ---------- */
+  .hero-text-block {
+    align-items: flex-start;
+    max-width: 760px;
+    text-align: left;
+  }
+
+  .hero-title img {
+    width: clamp(420px, 52vw, 760px);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+  }
+
+  .hero-p {
+    font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+  }
+
+  .hero .btn-primary {
+    width: auto;
+    min-width: 220px;
+  }
+
+  .hero-logo img {
+    width: clamp(120px, 14vw, 250px);
+  }
+
+  /* ---------- Puntos fuertes en fila ---------- */
+  .highlights {
+    padding: 56px 0;
+  }
+
+  .highlights-list {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+
+  /* ---------- Servicios 2 x 2 ---------- */
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  /* ---------- Catálogo: buscador a la izquierda, filtros al lado ---------- */
+  .catalog-controls {
+    grid-template-columns: minmax(260px, 360px) 1fr;
+    align-items: center;
+    gap: 24px;
+  }
+
+  /* ---------- Contacto en fila ---------- */
+  .contact-actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .whatsapp-btn-float {
+    width: auto;
+    height: auto;
+    padding: 12px 24px;
+    border-radius: 50px;
+    gap: 12px;
+    flex-direction: row-reverse;
+    /* Ícono a la derecha del texto */
+  }
+
+  .whatsapp-btn-float .btn-text {
+    display: inline-block;
+    font-size: 16px;
+  }
+}

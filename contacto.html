@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Soluciones Integrales</title>
+  <meta name="description"
+    content="Pedí tu presupuesto o consultanos. Soluciones Integrales: Av. Tte. Juan Domingo Perón 1313, Juana Koslay, San Luis. Tel. 0266 526-9524.">
+  <meta name="author" content="Ignacio Jofre">
+  <meta name="theme-color" content="#211261">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="styles/soluciones.css">
+  <link rel="stylesheet" href="styles/soluciones-large.css">
+  <script src="script/soluciones.js" defer></script>
+</head>
+
+<body>
+
+  <header class="site-header site-header--solid">
+    <nav class="navigation" aria-label="Principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="navigation-list">
+        ≡
+      </button>
+      <ul class="navigation-list" id="navigation-list">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="trabajos.html">Trabajos realizados</a></li>
+        <li><a href="tienda.html">Equipos y repuestos</a></li>
+        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="container">
+        <h1>Contacto</h1>
+        <p>Contanos qué necesitás (hogar, comercio o industria) y te respondemos a la brevedad.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+
+        <!-- ============ FORMULARIO ============ -->
+        <div class="contact-form-col">
+          <h2>Escribinos</h2>
+
+          <form class="contact-form" id="contact-form" method="post">
+            <div class="form-field">
+              <label for="nombre">Nombre y apellido</label>
+              <input class="form-control" id="nombre" name="nombre" type="text" autocomplete="name" required
+                maxlength="80">
+            </div>
+
+            <div class="form-field">
+              <label for="email">Correo electrónico</label>
+              <input class="form-control" id="email" name="email" type="email" autocomplete="email" required
+                maxlength="120">
+            </div>
+
+            <div class="form-field">
+              <label for="telefono">Teléfono <span class="form-optional">(opcional)</span></label>
+              <input class="form-control" id="telefono" name="telefono" type="tel" autocomplete="tel" maxlength="30">
+            </div>
+
+            <div class="form-field">
+              <label for="tipo">Tipo de cliente</label>
+              <select class="form-control" id="tipo" name="tipo" required>
+                <option value="" selected disabled>Elegí una opción</option>
+                <option>Hogar</option>
+                <option>Comercio</option>
+                <option>Industria</option>
+                <option>Licitación u organismo</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="servicio">¿Qué necesitás?</label>
+              <select class="form-control" id="servicio" name="servicio" required>
+                <option value="" selected disabled>Elegí una opción</option>
+                <option>Instalación de aire acondicionado</option>
+                <option>Reparación o mantenimiento</option>
+                <option>Electricidad y automatización</option>
+                <option>Parquizado y pintura</option>
+                <option>Compra de equipos o repuestos</option>
+                <option>Otro</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="mensaje">Mensaje</label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="6" required minlength="10"
+                maxlength="1500"></textarea>
+            </div>
+
+            <!-- Campo trampa para bots: las personas no lo ven ni lo completan -->
+            <div class="form-hp" aria-hidden="true">
+              <label>No completar este campo
+                <input type="text" name="hp_campo" tabindex="-1" autocomplete="off">
+              </label>
+            </div>
+
+            <button class="btn-primary" type="submit">Enviar consulta</button>
+            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            <p class="form-note">Usamos tus datos solo para responder tu consulta.</p>
+          </form>
+        </div>
+
+        <!-- ============ DATOS, HORARIOS Y MAPA ============ -->
+        <div class="contact-info">
+          <h2>Dónde encontrarnos</h2>
+
+          <address class="contact-address">
+            Av. Tte. Juan Domingo Perón 1313<br>
+            D5701 Juana Koslay, San Luis<br>
+            <a href="tel:+542665269524">0266 526-9524</a>
+          </address>
+
+          <div>
+            <h3>Horarios de atención</h3>
+            <p class="open-status" id="open-status" aria-live="polite"></p>
+            <table class="hours-table">
+              <caption class="visually-hidden">Horarios de atención del local</caption>
+              <tbody>
+                <tr>
+                  <th scope="row">Lunes a viernes</th>
+                  <td>9:00 a 17:00 h</td>
+                </tr>
+                <tr>
+                  <th scope="row">Sábado</th>
+                  <td>9:00 a 13:00 h</td>
+                </tr>
+                <tr>
+                  <th scope="row">Domingo</th>
+                  <td>Cerrado</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <iframe class="map-frame" title="Mapa con la ubicación de Soluciones Integrales SL"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3335.6574129742958!2d-66.23567129999999!3d-33.2754601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95d415eb9970c77f%3A0x4ff03175ade59e1f!2sSoluciones%20Integrales%20SL!5e0!3m2!1ses!2sar!4v1792277999087!5m2!1ses!2sar"
+            allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+
+          <div>
+            <a class="btn-secondary"
+              href="https://www.google.com/maps/search/?api=1&amp;query=Soluciones+Integrales+SL+Juana+Koslay"
+              target="_blank" rel="noopener noreferrer">Cómo llegar</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-col info-col">
+        <h3 class="footer-brand">Soluciones Integrales</h3>
+        <p class="footer-desc">
+          Somos una empresa dedicada a brindar servicios eficientes y especializados en el área de refrigeración y
+          climatización
+          para tu hogar, comercio o industria. Venta de equipos, insumos y repuestos.
+        </p>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4>Visitanos</h4>
+        <address class="footer-address">
+          Av. Tte. Juan Domingo Perón 1313<br>
+          Juana Koslay, San Luis<br>
+          <a href="tel:+542665269524">0266 526-9524</a>
+        </address>
+        <p class="footer-hours">Lun a Vie 9 a 17 h · Sáb 9 a 13 h</p>
+      </div>
+
+      <div class="footer-col social-col">
+        <h4>Seguinos</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/sintegrales_sl" target="_blank" rel="noopener noreferrer">
+            <img src="images/instagram.svg" alt="" class="social-icon">
+            <span>@sintegrales_sl</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61580933621949" target="_blank" rel="noopener noreferrer">
+            <img src="images/facebook.svg" alt="" class="social-icon">
+            <span>Soluciones Integrales San Luis</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Soluciones Integrales SRL. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

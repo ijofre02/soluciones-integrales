@@ -1,107 +1,291 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-AR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Soluciones Integrales</title>
-  <meta name="description" content="">
+  <title>Soluciones Integrales | Refrigeración y climatización</title>
+  <meta name="description"
+    content="Instalación, reparación y mantenimiento de aires acondicionados y refrigeración para hogar, comercio e industria. Venta de equipos, repuestos y herramientas.">
   <meta name="author" content="Ignacio Jofre">
+  <meta name="theme-color" content="#211261">
+
+  <!-- Tipografías (reemplazo gratuito de Knockout, la fuente de marca es paga) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;700&display=swap"
+    rel="stylesheet">
 
   <link rel="stylesheet" href="styles/soluciones.css">
   <link rel="stylesheet" href="styles/soluciones-large.css">
   <script src="script/soluciones.js" defer></script>
+
+  <!-- Datos del negocio para Google (búsquedas y Maps) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HVACBusiness",
+    "name": "Soluciones Integrales SL",
+    "description": "Instalación, reparación y mantenimiento de aires acondicionados y refrigeración. Venta de equipos, repuestos y herramientas.",
+    "telephone": "+542665269524",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Av. Tte. Juan Domingo Perón 1313",
+      "addressLocality": "Juana Koslay",
+      "addressRegion": "San Luis",
+      "postalCode": "D5701",
+      "addressCountry": "AR"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "09:00",
+        "closes": "17:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "13:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/sintegrales_sl/",
+      "https://www.facebook.com/profile.php?id=61580933621949"
+    ]
+  }
+  </script>
 </head>
+
 <body>
+
+  <!-- =============== HEADER / MENÚ =============== -->
   <header class="site-header">
-    <nav class="navigation">
-      <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false">
+    <nav class="navigation" aria-label="Principal">
+      <button class="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false"
+        aria-controls="navigation-list">
         ≡
       </button>
-      <ul class="navigation-list">
-        <li><a href="index.html">Principal</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#trabajos">Trabajos realizados</a></li>
-        <li><a href="#equipamiento">Equipamiento</a></li>
-        <li><a href="contacto.html">Contacto / Contrataciones</a></li>
+      <ul class="navigation-list" id="navigation-list">
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="index.html#servicios">Servicios</a></li>
+        <li><a href="trabajos.html">Trabajos realizados</a></li>
+        <li><a href="tienda.html">Equipos y repuestos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
   </header>
-  
+
   <main>
-    <!-- =============== HERO CON TODO LO DE ADENTRO =============== -->
-    <section class="hero">
-      <!-- BANER -->
-      <picture class="hero-bg">
+
+    <!-- =============== HERO =============== -->
+    <section class="hero" id="inicio">
+      <!-- Banner de fondo: imagen chica por defecto (mobile first), grande desde 1000px -->
+      <picture>
         <source media="(min-width: 1000px)" srcset="images/hero-comodidad-v4.webp">
-        <img src="images/hero-small.webp" alt="baner comodidad" class="hero-bg">
+        <img class="hero-bg" src="images/hero-small.webp" alt="" fetchpriority="high">
       </picture>
-      <!-- TODO LO QUE VA DENTRO -->
+
       <div class="hero-content">
-        <!-- CONTENEDOR DE SOLO EL TEXTO -->
         <div class="hero-text-block">
           <h1 class="hero-title">
-            <img src="images/nube-sin-fondo.webp" alt="Soluciones Integrales - Bienestar">
+            <img src="images/nube-sin-fondo.webp" alt="Soluciones Integrales - Bienestar" fetchpriority="high">
           </h1>
-          <h2 class="hero-subtitle">A tu medida</h2>
-          <p class="hero-p">Especialistas en el área de refrigeración y climatización para tu hogar, comercio o industria.</p>
-          <button class="btn-primary">Cotizar</button>
+          <p class="hero-subtitle">A tu medida</p>
+          <p class="hero-p">Especialistas en el área de refrigeración y climatización para tu hogar, comercio o
+            industria.</p>
+          <a class="btn-primary" href="contacto.html" data-whatsapp="Hola, quiero pedir un presupuesto.">Cotizar</a>
         </div>
-        <!-- CONTENEDOR DEL LOGO -->
-        <div class="logo">
-          <img src="images/logo-alternativo-frio.webp" alt="Soluciones Integrales Logo">
+
+        <div class="hero-logo">
+          <img src="images/logo-alternativo-frio.webp" alt="Soluciones Integrales">
         </div>
       </div>
     </section>
 
-    <!-- ============= SECCIONES ================= -->
-    <section class="lema">
-      
+    <!-- =============== PUNTOS FUERTES =============== -->
+    <section class="highlights" aria-label="Por qué elegirnos">
+      <div class="container">
+        <ul class="highlights-list">
+          <li>
+            <h2 class="highlight-title">Matriculados</h2>
+            <p>Refrigeración domiciliaria, comercial e industrial.</p>
+          </li>
+          <li>
+            <h2 class="highlight-title">Soluciones integrales</h2>
+            <p>Climatización, electricidad, automatización, parquizado y pintura.</p>
+          </li>
+          <li>
+            <h2 class="highlight-title">Local de venta</h2>
+            <p>Equipos, repuestos y herramientas para quien trabaja en climatización.</p>
+          </li>
+        </ul>
+      </div>
     </section>
 
-    <section id="servicios" class="services">
-      <h2>Servicios Prestados</h2>
-      <div class="services-grid">
-        <article class="service-card">
-          <h3>Mantenimiento Industrial</h3>
-          <p>Soluciones preventivas y correctivas adaptadas a requerimientos técnicos exigentes.</p>
-        </article>
-        <article class="service-card">
-          <h3>Instalaciones Especializadas</h3>
-          <p>Montaje y puesta en marcha con cumplimiento estricto de normas de seguridad.</p>
-        </article>
+    <!-- =============== SERVICIOS =============== -->
+    <section class="section services" id="servicios">
+      <div class="container">
+        <h2>Servicios</h2>
+        <p class="section-intro">
+          Contamos con experiencia y equipamiento para realizar todo tipo de trabajos, tanto industriales como a medida.
+          Tenemos matrícula en refrigeración domiciliaria, comercial e industrial, para garantizar a nuestros clientes
+          una buena instalación y un buen layout.
+        </p>
+
+        <div class="services-grid">
+          <article class="service-card">
+            <h3>Aires acondicionados y refrigeración</h3>
+            <p>Instalación, reparación y mantenimiento de equipos nuevos y existentes, domésticos e industriales.</p>
+          </article>
+          <article class="service-card">
+            <h3>Mantenimiento industrial</h3>
+            <p>Soluciones preventivas y correctivas adaptadas a requerimientos técnicos exigentes.</p>
+          </article>
+          <article class="service-card">
+            <h3>Electricidad y automatización</h3>
+            <p>Instalaciones eléctricas, luminaria para parquizados y estacionamientos, y automatización de portones.
+            </p>
+          </article>
+          <article class="service-card">
+            <h3>Parquizado y pintura</h3>
+            <p>Mantenimiento completo de parquizados y trabajos de pintura.</p>
+          </article>
+        </div>
       </div>
     </section>
-    
-    <section id="trabajos" class="portfolio">
-      <h2>Trabajos Realizados</h2>
-      <div class="portfolio-grid">
-        <article class="project-card">
-          <img src="images/proyecto1.webp" alt="Proyecto de mantenimiento técnico">
-          <h3>Optimización de Planta A</h3>
-          <p>Ejecución de mantenimiento integral y calibración de equipos.</p>
-        </article>
-        <article class="project-card">
-          <img src="images/proyecto2.webp" alt="Instalación de equipamiento">
-          <h3>Montaje de Estructuras B</h3>
-          <p>Instalación técnica certificada para el sector industrial.</p>
-        </article>
+
+    <!-- =============== TRABAJOS REALIZADOS (resumen) =============== -->
+    <section class="section section-alt portfolio" id="trabajos">
+      <div class="container">
+        <h2>Trabajos realizados</h2>
+        <p class="section-intro">Instalaciones y mantenimientos para hogares, comercios e industrias.</p>
+
+        <div class="portfolio-grid">
+          <article class="project-card">
+            <img src="images/trabajo-industrial.webp" alt="Trabajo en industria" loading="lazy">
+            <div class="project-card-body">
+              <p class="project-tag">Industrial</p>
+              <h3>Trabajo en industria</h3>
+            </div>
+          </article>
+          <article class="project-card">
+            <img src="images/trabajo-adaptable.webp" alt="Trabajo en altura" loading="lazy">
+            <div class="project-card-body">
+              <p class="project-tag">Instalación</p>
+              <h3>Trabajo en altura</h3>
+            </div>
+          </article>
+          <article class="project-card">
+            <img src="images/trabajo8.webp" alt="Mantenimiento técnico" loading="lazy">
+            <div class="project-card-body">
+              <p class="project-tag">Mantenimiento</p>
+              <h3>Mantenimiento técnico</h3>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-cta">
+          <a class="btn-secondary" href="trabajos.html">Ver todos los trabajos</a>
+        </div>
       </div>
     </section>
-    
-    <section id="equipamiento" class="equipment">
-      <h2>Nuestro Equipamiento</h2>
-      <p>Contamos con maquinaria y herramientas de última generación para garantizar la máxima precisión en cada proyecto.
-      </p>
-      <ul>
-        <li>Maquinaria pesada certificada</li>
-        <li>Herramientas de medición digital de alta precisión</li>
-        <li>Unidades móviles de asistencia técnica</li>
-      </ul>
+
+    <!-- =============== EQUIPOS Y REPUESTOS (resumen) =============== -->
+    <section class="section shop" id="equipos">
+      <div class="container">
+        <h2>Equipos y repuestos</h2>
+        <p class="section-intro">
+          En nuestro local encontrás todo lo que un técnico necesita para trabajar, para el hogar y la industria.
+        </p>
+
+        <!-- Si cambian las categorías de data/productos.json, actualizar estos enlaces -->
+        <div class="chip-list">
+          <img src="images/air-conditioning-svgrepo-com.svg" alt="" width="100">
+          <a class="chip" href="tienda.html?categoria=Equipos">Equipos</a>
+          <a class="chip" href="tienda.html?categoria=Repuestos">Repuestos</a>
+          <a class="chip" href="tienda.html?categoria=Herramientas">Herramientas</a>
+          <a class="chip" href="tienda.html?categoria=Insumos">Insumos</a>
+        </div>
+
+        <a class="btn-secondary" href="tienda.html">Ver todo el catálogo</a>
+      </div>
     </section>
+
+    <!-- =============== CONTACTO (resumen) =============== -->
+    <section class="section contact" id="contacto">
+      <div class="container">
+        <h2>¿Necesitás un presupuesto?</h2>
+        <p class="section-intro">
+          Contanos qué necesitás y te asesoramos. También podés visitarnos en nuestro local de Juana Koslay.
+        </p>
+        <div class="contact-actions">
+          <a class="btn-primary" href="contacto.html">Escribinos</a>
+          <a class="btn-secondary" href="tel:+542665269524">Llamar al 0266 526-9524</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5492665269524?text=Hola%2C%20quiero%20hacer%20una%20consulta."
+      class="whatsapp-btn-float" aria-label="Solicitar turno por WhatsApp">
+      <span class="btn-text">Solicitar turno</span>
+      <span class="btn-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.938 3.659 1.432 5.63 1.433h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+      </span>
+    </a>
+
   </main>
-  
-  <footer>
-    <p>&copy; 2026 Soluciones Integrales. Todos los derechos reservados.</p>
+
+  <!-- =============== FOOTER =============== -->
+  <footer class="site-footer">
+    <div class="footer-container">
+
+      <div class="footer-col info-col">
+        <h3 class="footer-brand">Soluciones Integrales</h3>
+        <p class="footer-desc">
+          Somos una empresa dedicada a brindar servicios eficientes y especializados en el área de refrigeración y
+          climatización
+          para tu hogar, comercio o industria. Venta de equipos, insumos y repuestos.
+        </p>
+      </div>
+
+      <div class="footer-col contact-col">
+        <h4>Visitanos</h4>
+        <address class="footer-address">
+          Av. Tte. Juan Domingo Perón 1313<br>
+          Juana Koslay, San Luis<br>
+          <a href="tel:+542665269524">0266 526-9524</a>
+        </address>
+        <p class="footer-hours">Lun a Vie 9 a 17 h · Sáb 9 a 13 h</p>
+      </div>
+
+      <div class="footer-col social-col">
+        <h4>Seguinos</h4>
+        <div class="social-links">
+          <a href="https://www.instagram.com/sintegrales_sl" target="_blank" rel="noopener noreferrer">
+            <img src="images/instagram-svgrepo-com (1).svg" alt="" class="social-icon">
+            <span>@sintegrales_sl</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61580933621949" target="_blank" rel="noopener noreferrer">
+            <img src="images/facebook-svgrepo-com.svg" alt="" class="social-icon">
+            <span>Soluciones Integrales San Luis</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Soluciones Integrales SRL. Todos los derechos reservados.</p>
+    </div>
   </footer>
+
 </body>
+
 </html>

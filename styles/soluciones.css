@@ -1,7 +1,14 @@
 /* =========================================================
+   SOLUCIONES INTEGRALES — CSS BASE (mobile first)
+   Los estilos de pantalla grande están en soluciones-large.css
+   ========================================================= */
+
+/* =========================================================
    RESET
    ========================================================= */
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -11,38 +18,136 @@
    VARIABLES GLOBALES
    ========================================================= */
 :root {
-  /* Colores */
-  --primary-color: #0D1462;
-  --secondary-color: #00A2E0;
-  --accent-color: #00B8D9;
-  
-  --primary-light: #E8F7FC;
-  --primary-dark:#080D45;
-  /* ===== TEXT =====*/
-  --text-primary: #1B1F2A;
-  --text-secondary: #5B6472;
+  /* Colores de marca (manual de marca) */
+  --blue: #00A0DF;
+  /* Pantone 299 C  */
+  --navy: #211261;
+  /* Pantone 2755 C */
+
+  /* Derivados */
+  --navy-dark: #150A3D;
+  --blue-dark: #00709F;
+  /* azul para texto sobre fondo claro (contraste AA) */
+  --blue-light: #E6F6FD;
+
+  /* Texto */
+  --text: #1B1F2A;
+  --text-muted: #4A5163;
+  --white: #ffffff;
 
   /* Tipografía */
-  --heading-font: "Playfair Display", serif;
-  --body-font: "Lato", sans-serif;
+  --heading-font: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body-font: "Barlow", system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+  /* para que el header fijo no tape los títulos al navegar */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  font-family: system-ui, -apple-system, sans-serif;
+  font-family: var(--body-font);
   line-height: 1.6;
-  color: #333;
+  color: var(--text);
+  background: var(--white);
 }
 
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+.container {
+  width: min(92%, 1100px);
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
 
 /* =========================================================
-   HEADER / NAV (flota encima del hero)
+   BOTONES
+   ========================================================= */
+.btn-primary,
+.btn-secondary {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+/* Texto azul oscuro sobre azul de marca: contraste 5.3:1 (el blanco daba 2.9:1) */
+.btn-primary {
+  border: 2px solid var(--blue);
+  background-color: var(--blue);
+  color: var(--navy);
+}
+
+.btn-primary:hover {
+  background-color: var(--white);
+  border-color: var(--white);
+}
+
+.btn-primary:active,
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+.btn-secondary {
+  border: 2px solid var(--navy);
+  background: transparent;
+  color: var(--navy);
+}
+
+.btn-secondary:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* =========================================================
+   HEADER / NAV (fijo, flota encima del hero)
    ========================================================= */
 .site-header {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  z-index: 10;
+  z-index: 100;
   width: 100%;
+  /* degradé suave para que el menú se lea sobre cualquier foto */
+  background: linear-gradient(to bottom, rgba(21, 10, 61, 0.55), rgba(21, 10, 61, 0));
+  transition: box-shadow 0.25s ease;
+}
+
+/* clase que agrega el JS al hacer scroll */
+.site-header.is-scrolled {
+  background: var(--navy);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .navigation {
@@ -50,14 +155,18 @@ body {
   margin: 0 auto;
   display: flex;
   justify-content: flex-end;
-  padding-top: 24px;
+  align-items: center;
+  padding-block: 8px;
 }
 
 .menu-toggle {
+  width: 56px;
+  height: 56px;
   border: none;
+  border-radius: 8px;
   background: transparent;
-  color: var(--accent-color);
-  font-size: 70px;
+  color: var(--blue);
+  font-size: 48px;
   line-height: 1;
   cursor: pointer;
 }
@@ -68,46 +177,61 @@ body {
 }
 
 .navigation-list a {
-  color: var(--primary-light);
+  color: var(--blue-light);
+  font-size: 1.1rem;
+  font-weight: 500;
   text-decoration: none;
+}
+
+.navigation-list a:hover {
+  color: var(--blue);
 }
 
 .navigation-list.is-open {
   position: absolute;
-  top: 75px;
+  top: 100%;
   right: 4%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
+  min-width: 230px;
   padding: 24px;
-  background: rgba(0, 0, 0, .75);
+  background: rgba(21, 10, 61, 0.94);
   backdrop-filter: blur(10px);
   border-radius: 12px;
 }
 
 /* =========================================================
-   HERO — sección completa
+   HERO
    ========================================================= */
 .hero {
   position: relative;
   min-height: 100svh;
-  width: 100%;
-  overflow: hidden;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(180deg,
-      rgba(0, 0, 0, .06) 0%,
-      rgba(0, 0, 0, .14) 45%,
-      rgba(0, 0, 0, .76) 100%);
+  overflow: hidden;
+  color: var(--white);
 }
 
-/* La imagen de fondo estirada */
+/* Degradé oscuro sobre la imagen para que el texto se lea */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  /* para no bloquear los clicks en "Cotizar" */
+  background: linear-gradient(180deg,
+      rgba(0, 0, 0, 0.06) 0%,
+      rgba(0, 0, 0, 0.14) 45%,
+      rgba(0, 0, 0, 0.76) 100%);
+}
+
+/* Imagen de fondo estirada */
 .hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 1;
   width: 100%;
   height: 100%;
@@ -115,19 +239,18 @@ body {
   object-position: center;
 }
 
-/* El contenedor de todo lo que va ARRIBA de la imagen */
+/* Todo lo que va arriba de la imagen */
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   width: min(92%, 1320px);
-  height: 100svh;
+  min-height: 100svh;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding-top: clamp(70px, 29vh, 250px); /*Aca lo muevo  */
+  padding-top: clamp(70px, 29vh, 250px);
   padding-bottom: clamp(30px, 5vh, 60px);
-  color: var(--font-color);
 }
 
 .hero-text-block {
@@ -135,75 +258,678 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  text-align: left;
   align-items: center;
+  text-align: center;
 }
-
-/* h1 { H1 ES UNA IMAGEN NO UN TEXTO ASI QUE NO APLICA
-  max-width: 1100px;
-  font-size: clamp(56px, 9vw, 142px);
-  line-height: .9;
-  letter-spacing: -.055em;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
-} */
 
 .hero-title img {
-  display: block; /* saca el gap fantasma que dejan los img inline */
-  width: clamp(280px, 92vw, 850px); /* el equivalente al font-size que tenías */
+  width: clamp(260px, 88vw, 850px);
   max-width: 100%;
-  height: auto; /* mantiene la proporción de la imagen, no la deforma */
-}
-
-.hero-subtitle {
-  max-width: 850px;
-  margin: 28px 0 0;
-  font-size: clamp(18px, 12.1vw, 85px);
-  line-height: 1.25;
-  color: rgba(255, 255, 255, .95);
-}
-
-.hero-p {
-  max-width: 850px;
-  margin: 28px 0 0;
-  font-size: clamp(18px, 3.4vw, 85px);
-  line-height: 1.25;
-  color: rgba(255, 255, 255, .95);
-}
-
-.logo {
-  position: absolute;
-  top: 24px; /* yo dónde */
-  left: -20px; /* neg para ir a la izq fuera del contenedor */
-}
-
-.logo img {
-  display: block;
-  width: clamp(60px, 21vw, 250px); /* (minimo, valor ideal %del viewport, maximo) */
   height: auto;
 }
 
-.btn-primary {
+.hero-subtitle {
+  margin-top: 16px;
+  font-family: var(--heading-font);
+  font-size: clamp(2.2rem, 10vw, 4.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-p {
+  max-width: 36rem;
+  margin-top: 12px;
+  font-size: clamp(1rem, 4vw, 1.35rem);
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.hero .btn-primary {
   width: 100%;
-  padding: 16px;
-  border: none;
-  border-radius: 8px;
-  background-color: var(--accent-color);
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
+  max-width: 360px;
+  margin-top: 24px;
+}
+
+.hero-logo {
+  position: absolute;
+  top: 24px;
+  left: 0;
+}
+
+.hero-logo img {
+  width: clamp(60px, 21vw, 250px);
+  height: auto;
 }
 
 /* =========================================================
-SECCION
+   PUNTOS FUERTES
+   ========================================================= */
+.highlights {
+  padding: 40px 0;
+  background: var(--navy);
+  color: var(--white);
+}
+
+.highlights-list {
+  list-style: none;
+  display: grid;
+  gap: 24px;
+}
+
+.highlight-title {
+  font-family: var(--heading-font);
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--blue);
+}
+
+.highlights-list p {
+  color: #E3E6F5;
+}
+
+/* =========================================================
+   SECCIONES (estilos compartidos)
+   ========================================================= */
+.section {
+  padding: 64px 0;
+}
+
+.section-alt {
+  background: var(--blue-light);
+}
+
+.section h2 {
+  margin-bottom: 16px;
+  font-family: var(--heading-font);
+  font-size: clamp(2rem, 7vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--navy);
+}
+
+.section h2::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background: var(--blue);
+}
+
+.section-intro {
+  max-width: 65ch;
+  margin-bottom: 32px;
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   SERVICIOS
+   ========================================================= */
+.services-grid {
+  display: grid;
+  gap: 20px;
+}
+
+.service-card {
+  padding: 24px;
+  border: 1px solid #E1E6F0;
+  border-left: 6px solid var(--blue);
+  border-radius: 12px;
+  background: var(--white);
+}
+
+.service-card h3 {
+  margin-bottom: 8px;
+  font-family: var(--heading-font);
+  font-size: 1.5rem;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.service-card p {
+  color: var(--text-muted);
+}
+
+/* =========================================================
+   TRABAJOS REALIZADOS
+   ========================================================= */
+.portfolio-grid,
+.catalog-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+}
+
+.project-card {
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(33, 18, 97, 0.1);
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.project-card-body {
+  padding: 16px 20px 20px;
+}
+
+.project-tag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+}
+
+.project-card h3 {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+/* =========================================================
+   EQUIPOS Y REPUESTOS (catálogo)
+   ========================================================= */
+.catalog-controls {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.catalog-search {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #C9D2E3;
+  border-radius: 8px;
+  font: inherit;
+  color: var(--text);
+}
+
+.catalog-search:focus-visible {
+  border-color: var(--blue);
+}
+
+.catalog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  background: transparent;
+  font: inherit;
+  font-weight: 700;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.catalog-status {
+  min-height: 1.6em;
+  margin-bottom: 16px;
+  color: var(--text-muted);
+}
+
+.catalog-grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  border: 1px solid #E1E6F0;
+  border-radius: 12px;
+  background: #F7FAFD;
+}
+
+.product-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-category {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue-dark);
+}
+
+.product-card h3 {
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.product-brand {
+  font-weight: 700;
+}
+
+.product-desc {
+  color: var(--text-muted);
+}
+
+.product-card .btn-secondary {
+  margin-top: auto;
+}
+
+/* =========================================================
+   CONTACTO
+   ========================================================= */
+.contact {
+  background: var(--navy);
+  color: var(--white);
+}
+
+.contact h2 {
+  color: var(--white);
+}
+
+.contact .section-intro {
+  color: #E3E6F5;
+}
+
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact .btn-secondary {
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.contact .btn-secondary:hover {
+  background: var(--white);
+  color: var(--navy);
+}
+
+
+/* =========================================================
+   WSP BUTTON
+   ========================================================= */
+.whatsapp-btn-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #25d366;
+  color: #1c1e21;
+  text-decoration: none;
+  font-family: "WhatsApp Sans Var", sans-serif;
+  font-weight: 500;
+  border: 1px solid #1c1e21;
+
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+
+  /* Transición gradual para el efecto de color */
+  transition: background-color 0.33s linear, color 0.33s linear, border-color 0.5s ease-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.whatsapp-btn-float .btn-text {
+  display: none;
+  /* Oculto en móvil */
+}
+
+/* Efecto de oscurecimiento gradual al hover */
+.whatsapp-btn-float:hover {
+  background-color: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.site-footer {
+  padding: 50px 20px 20px;
+  background-color: var(--navy-dark);
+  color: var(--white);
+  border-top: 1px solid rgba(0, 160, 223, 0.4);
+}
+
+.footer-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.footer-col {
+  flex: 1 1 240px;
+}
+
+.footer-brand {
+  margin-bottom: 12px;
+  font-family: var(--heading-font);
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.footer-col h4 {
+  margin-bottom: 15px;
+  font-family: var(--heading-font);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.footer-desc {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #D5D9EC;
+}
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.social-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--blue);
+  transform: translateX(3px);
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  /* pasa el SVG a blanco */
+}
+
+.footer-bottom {
+  max-width: 1000px;
+  margin: 40px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #A9AEC9;
+}
+
+.footer-address {
+  font-style: normal;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #D5D9EC;
+}
+
+.footer-address a {
+  color: var(--white);
+}
+
+.footer-hours {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #D5D9EC;
+}
+
+/* =========================================================
+   PÁGINAS INTERNAS (trabajos, tienda, contacto)
    ========================================================= */
 
-.services {
-  background: #ffffff;
-  color: #000000;
-  padding: 85px 0 80px;
+/* El header de las páginas internas es siempre sólido */
+.site-header--solid {
+  background: var(--navy);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+}
+
+.navigation-list a[aria-current="page"] {
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* Franja de título al comienzo de cada página interna */
+.page-hero {
+  padding: 112px 0 40px;
+  /* el padding de arriba deja lugar al header fijo */
+  background: var(--navy);
+  color: var(--white);
+}
+
+.page-hero h1 {
+  font-family: var(--heading-font);
+  font-size: clamp(2.4rem, 9vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.page-hero h1::after {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-top: 12px;
+  border-radius: 2px;
+  background: var(--blue);
+}
+
+.page-hero p {
+  max-width: 65ch;
+  margin-top: 16px;
+  color: #E3E6F5;
+}
+
+/* Botón de "ver más" debajo de un resumen en el index */
+.section-cta {
+  margin-top: 32px;
+}
+
+/* Enlaces de categoría (index → tienda) */
+.chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.chip {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 2px solid var(--navy);
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--navy);
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.chip:hover {
+  background: var(--navy);
+  color: var(--white);
+}
+
+/* =========================================================
+   CONTACTO: formulario, datos, horarios y mapa
+   ========================================================= */
+.contact-layout {
+  display: grid;
+  gap: 48px;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+}
+
+.form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.form-field label {
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.form-optional {
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid #C9D2E3;
+  border-radius: 8px;
+  background: var(--white);
+  font: inherit;
+  color: var(--text);
+}
+
+.form-control:focus-visible {
+  border-color: var(--blue);
+}
+
+textarea.form-control {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* Campo trampa para bots, fuera de pantalla */
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.contact-form .btn-primary {
+  justify-self: start;
+  min-width: 200px;
+}
+
+.form-status {
+  border-radius: 8px;
+}
+
+.form-status.is-success,
+.form-status.is-error {
+  padding: 12px 16px;
+  font-weight: 500;
+}
+
+.form-status.is-success {
+  border: 1px solid #86C9A0;
+  background: #E7F6EC;
+  color: #14532D;
+}
+
+.form-status.is-error {
+  border: 1px solid #E5A1A1;
+  background: #FDECEC;
+  color: #7F1D1D;
+}
+
+.form-note {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.contact-info {
+  display: grid;
+  gap: 20px;
+  align-content: start;
+}
+
+.contact-info h3 {
+  margin-bottom: 8px;
+  font-family: var(--heading-font);
+  font-size: 1.4rem;
+  color: var(--navy);
+}
+
+.contact-address {
+  font-style: normal;
+}
+
+.contact-address a {
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+.open-status {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.open-status.is-open {
+  color: #14532D;
+}
+
+.open-status.is-closed {
+  color: #7F1D1D;
+}
+
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.hours-table th,
+.hours-table td {
+  padding: 8px 0;
+  border-bottom: 1px solid #E1E6F0;
+  text-align: left;
+  font-weight: 400;
+}
+
+.hours-table td {
+  text-align: right;
+  font-weight: 700;
+}
+
+.map-frame {
+  width: 100%;
+  height: 300px;
+  border: 0;
+  border-radius: 12px;
 }
 

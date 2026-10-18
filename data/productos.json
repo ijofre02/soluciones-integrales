@@ -1,0 +1,59 @@
+{
+  "_aviso": "PRODUCTOS DE EJEMPLO: reemplazar por el catálogo real del local. Campos: nombre, categoria, marca (opcional), descripcion (opcional), imagen (opcional, ej: images/productos/split.webp).",
+  "productos": [
+    {
+      "nombre": "Aire acondicionado split frío/calor",
+      "categoria": "Equipos",
+      "marca": "",
+      "descripcion": "Consultá modelos y capacidades disponibles."
+    },
+    {
+      "nombre": "Aire acondicionado split solo frío",
+      "categoria": "Equipos",
+      "marca": "",
+      "descripcion": "Consultá modelos y capacidades disponibles."
+    },
+    {
+      "nombre": "Compresor",
+      "categoria": "Repuestos",
+      "marca": "",
+      "descripcion": "Para equipos domésticos e industriales. Consultá compatibilidad."
+    },
+    {
+      "nombre": "Capacitor de arranque",
+      "categoria": "Repuestos",
+      "marca": "",
+      "descripcion": "Consultá valores disponibles."
+    },
+    {
+      "nombre": "Motor de ventilador",
+      "categoria": "Repuestos",
+      "marca": "",
+      "descripcion": "Consultá compatibilidad con tu equipo."
+    },
+    {
+      "nombre": "Juego de manómetros",
+      "categoria": "Herramientas",
+      "marca": "",
+      "descripcion": "Para carga y diagnóstico de equipos."
+    },
+    {
+      "nombre": "Bomba de vacío",
+      "categoria": "Herramientas",
+      "marca": "",
+      "descripcion": "Consultá modelos disponibles."
+    },
+    {
+      "nombre": "Gas refrigerante",
+      "categoria": "Insumos",
+      "marca": "",
+      "descripcion": "Consultá tipos y presentaciones disponibles."
+    },
+    {
+      "nombre": "Cañería de cobre",
+      "categoria": "Insumos",
+      "marca": "",
+      "descripcion": "Para instalaciones. Consultá medidas disponibles."
+    }
+  ]
+}
