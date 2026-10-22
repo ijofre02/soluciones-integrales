@@ -2,6 +2,118 @@
   "_aviso": "PRODUCTOS DE EJEMPLO: reemplazar por el catálogo real del local. Campos: nombre, categoria, marca (opcional), descripcion (opcional), imagen (opcional, ej: images/productos/split.webp).",
   "productos": [
     {
+      "nombre": "Plaqueta Universal para Aire Acondicionado (Con Control)",
+      "categoria": "Repuestos",
+      "marca": "Genérico",
+      "descripcion": "Kit completo de plaqueta electrónica universal para equipos Split. Incluye transformador, receptor de señal y control remoto.",
+      "imagen": "images/productos/plaqueta-universal.webp"
+    },
+    {
+      "nombre": "Manifold para Refrigeración con Mangueras",
+      "categoria": "Herramientas",
+      "marca": "Genérico",
+      "descripcion": "Análogoso de alta y baja presión para gases R22, R134a, R410A. Incluye juego de 3 mangueras y adaptadores de bronce.",
+      "imagen": "images/productos/manifold-mangueras.webp"
+    },
+    {
+      "nombre": "Caño de Cobre para Instalación (Rollo)",
+      "categoria": "Insumos",
+      "marca": "",
+      "descripcion": "Tubería de cobre en rollo para refrigeración y aire acondicionado. Consultar medidas y espesores disponibles.",
+      "imagen": "images/productos/cano-cobre.webp"
+    },
+    {
+      "nombre": "Manguera Cristal de Desagüe",
+      "categoria": "Insumos",
+      "marca": "",
+      "descripcion": "Manguera de PVC flexible y transparente, ideal para el drenaje de condensado en equipos de aire acondicionado.",
+      "imagen": "images/productos/manguera-cristal.webp"
+    },
+    {
+      "nombre": "Gas MAP // PRO para Soldar (Cartucho Yellow)",
+      "categoria": "Insumos",
+      "marca": "ICELOONG",
+      "descripcion": "Cartucho de gas de alto rendimiento para soldadura fuerte y rápida en cañerías de refrigeración. Contenido neto: 400g.",
+      "imagen": "images/productos/gas-map-pro.webp"
+    },
+    {
+      "nombre": "Válvula Reguladora de Acceso Rápido",
+      "categoria": "Repuestos",
+      "marca": "",
+      "descripcion": "Válvula de acceso rápido o de pinchar para intervenciones y carga. Incluye tornillos Allen y llave de ajuste.",
+      "imagen": "images/productos/valvula-acceso-rapido.webp"
+    },
+    {
+      "nombre": "Válvulas de Servicio de Bronce para Split",
+      "categoria": "Repuestos",
+      "marca": "",
+      "descripcion": "Válvulas de paso de bronce con extensión de cobre para conexión de unidades de aire acondicionado Split. Consultar medidas.",
+      "imagen": "images/productos/valvulas-servicio.webp"
+    },
+    {
+      "nombre": "Gas Refrigerante R134a NECTON (900g)",
+      "categoria": "Insumos",
+      "marca": "NECTON",
+      "descripcion": "Garrafa de gas refrigerante puro R134a de 900 gramos. Ideal para refrigeración familiar, comercial y automotriz.",
+      "imagen": "images/productos/gas-r134a.webp"
+    },
+    {
+      "nombre": "Gas Refrigerante R410A NECTON (650g)",
+      "categoria": "Insumos",
+      "marca": "NECTON",
+      "descripcion": "Garrafa de gas refrigerante mezcla R410A de 650 gramos. Ideal para sistemas de aire acondicionado split y comerciales.",
+      "imagen": "images/productos/gas-r410a.webp"
+    },
+    {
+      "nombre": "Agente de Limpieza para Sistemas de Refrigeración (500g)",
+      "categoria": "Insumos",
+      "marca": "REFRIOIL",
+      "descripcion": "Líquido de limpieza para barrido de circuitos de refrigeración y aire acondicionado (reemplazo del R141b). Contenido neto: 500g.",
+      "imagen": "images/productos/agentes-limpieza.webp"
+    },
+    {
+      "nombre": "Control Remoto Universal para Aire Acondicionado",
+      "categoria": "Repuestos",
+      "marca": "COOLTECH",
+      "descripcion": "Control remoto universal 1000 en 1 para equipos Split (modelo CR-1028E) con pantalla retroiluminada.",
+      "imagen": "images/productos/control-generico.webp"
+    },
+    {
+      "nombre": "Fundente para Soldadura de Plata FLUX-4",
+      "categoria": "Insumos",
+      "marca": "COOLTECH",
+      "descripcion": "Fundente en pasta para soldadura fuerte con varilla de plata en uniones de cobre y bronce. Contenido neto: 115g.",
+      "imagen": "images/productos/flux-4.webp"
+    },
+    {
+      "nombre": "Plaqueta Universal para Aire Acondicionado con Sensor",
+      "categoria": "Repuestos",
+      "marca": "COOLTECH",
+      "descripcion": "Kit de placa electrónica universal para Split frío/calor. Incluye transformador, receptor, sensor y control remoto.",
+      "imagen": "images/productos/kit-control-generico.webp"
+    },
+    {
+      "nombre": "Gas Refrigerante R22 NECTON (1kg)",
+      "categoria": "Insumos",
+      "marca": "NECTON",
+      "descripcion": "Garrafa de gas refrigerante puro R22 de 1 kg. Para mantenimiento e instalación de equipos de refrigeración y climatización.",
+      "imagen": "images/productos/refrigerante-verde.webp"
+    },
+    {
+      "nombre": "Válvula de Servicio con Chicote de Cobre 1/4",
+      "categoria": "Repuestos",
+      "marca": "",
+      "descripcion": "Válvula de carga y acceso rápido con colilla/tubo de cobre listo para soldar.",
+      "imagen": "images/productos/valvula-carga-un-cuarto.webp"
+    },
+    {
+      "nombre": "Soporte Estrella de Tambor para Lavarropas",
+      "categoria": "Repuestos",
+      "marca": "",
+      "descripcion": "Soporte tripode de aluminio (eje / estrella) para tambor de lavarropas de carga frontal. Consultar modelos compatibles.",
+      "imagen": "images/productos/eje-estrella.webp"
+    },
+    {
       "nombre": "Aire acondicionado split frío/calor",
       "categoria": "Equipos",
       "marca": "",
@@ -32,28 +144,10 @@
       "descripcion": "Consultá compatibilidad con tu equipo."
     },
     {
-      "nombre": "Juego de manómetros",
-      "categoria": "Herramientas",
-      "marca": "",
-      "descripcion": "Para carga y diagnóstico de equipos."
-    },
-    {
       "nombre": "Bomba de vacío",
       "categoria": "Herramientas",
       "marca": "",
       "descripcion": "Consultá modelos disponibles."
-    },
-    {
-      "nombre": "Gas refrigerante",
-      "categoria": "Insumos",
-      "marca": "",
-      "descripcion": "Consultá tipos y presentaciones disponibles."
-    },
-    {
-      "nombre": "Cañería de cobre",
-      "categoria": "Insumos",
-      "marca": "",
-      "descripcion": "Para instalaciones. Consultá medidas disponibles."
     }
   ]
 }

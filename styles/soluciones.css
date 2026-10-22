@@ -19,10 +19,8 @@
    ========================================================= */
 :root {
   /* Colores de marca (manual de marca) */
-  --blue: #00A0DF;
-  /* Pantone 299 C  */
-  --navy: #211261;
-  /* Pantone 2755 C */
+  --blue: #00A0DF; /* Pantone 299 C  */
+  --navy: #211261; /* Pantone 2755 C */
 
   /* Derivados */
   --navy-dark: #150A3D;
@@ -501,8 +499,8 @@ input:focus-visible {
 
 .product-card img {
   width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
   border-radius: 8px;
 }
 

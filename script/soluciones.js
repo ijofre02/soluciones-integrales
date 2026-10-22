@@ -6,11 +6,11 @@
 // (sin +, espacios ni guiones). Para celulares de Argentina: 54 + 9 + código de área sin 0 + número.
 // TODO: completar con el número real de la empresa (solo si ese número tiene WhatsApp).
 // Mientras esté vacío, los botones con data-whatsapp llevan a la página de contacto.
-const WHATSAPP_NUMBER = "";
+const WHATSAPP_NUMBER = "5492665269524";
 
 // URL de la aplicación web de Google Apps Script que recibe el formulario y manda el mail.
 // TODO: pegar acá la URL que termina en /exec (ver apps-script/Code.gs para los pasos).
-const APPS_SCRIPT_URL = "";
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyeChzyVQK8Ol3mDBv-KDfnxmOb3IX3iwWSnjJQbF3hcphwkllkhwlHiK95AVejaanu/exec";
 
 const PRODUCTS_URL = "data/productos.json";
 
