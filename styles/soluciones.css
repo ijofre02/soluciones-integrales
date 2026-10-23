@@ -152,7 +152,7 @@ input:focus-visible {
   width: min(92%, 1320px);
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   padding-block: 8px;
 }
@@ -295,9 +295,67 @@ input:focus-visible {
   left: 0;
 }
 
-.hero-logo img {
+/* Registrar las variables como color permite animarlas */
+@property --logo-icono {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #FDFDFD;
+}
+
+@property --logo-texto {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #00A0DF;
+}
+
+/* Colores por defecto y colores al pasar el mouse */
+.hero-logo,
+.header-logo {
+  --logo-icono: var(--white);
+  --logo-texto: var(--blue);
+}
+
+@media (hover: hover) {
+
+  .hero-logo:hover,
+  .header-logo:hover {
+    --logo-icono: var(--blue);
+    --logo-texto: var(--white);
+  }
+}
+
+.logo-svg {
+  display: block;
+  transition: --logo-icono 0.3s ease, --logo-texto 0.3s ease;
+}
+
+/* Logo del hero: el ancho lo da el contenedor */
+.hero-logo {
   width: clamp(60px, 21vw, 250px);
+}
+
+.hero-logo .logo-svg {
+  width: 100%;
   height: auto;
+}
+
+/* Logo del header: aparece junto con el nav azul */
+.header-logo {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s;
+}
+
+.header-logo .logo-svg {
+  height: 48px;
+  width: auto;
+}
+
+.site-header.is-scrolled .header-logo,
+.site-header--solid .header-logo {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* =========================================================
@@ -624,6 +682,15 @@ input:focus-visible {
   /* Oculto en móvil */
 }
 
+.whatsapp-btn-float .btn-icon {
+  display: grid;
+  place-items: center;
+}
+
+.whatsapp-btn-float .btn-icon svg {
+  display: block;
+}
+
 /* Efecto de oscurecimiento gradual al hover */
 .whatsapp-btn-float:hover {
   background-color: #000000;
@@ -789,6 +856,7 @@ input:focus-visible {
 .chip-list {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
   margin-bottom: 28px;
   justify-content: space-evenly;
 }
@@ -956,4 +1024,3 @@ textarea.form-control {
   border: 0;
   border-radius: 12px;
 }
-
